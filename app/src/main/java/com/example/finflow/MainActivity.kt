@@ -1,23 +1,41 @@
 package com.example.finflow
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.anychart.AnyChart
+import com.anychart.AnyChartView
+import com.anychart.chart.common.dataentry.DataEntry
+import com.anychart.chart.common.dataentry.ValueDataEntry
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("SetTextI18n")
+    private lateinit var anyChartView: AnyChartView
+
+    private val months = arrayOf("Jan", "Feb", "Mar")
+    private val earnings = intArrayOf(500, 800, 2000)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-            setContentView(R.layout.home)
-        val textView = findViewById<TextView>(R.id.nama)
+        setContentView(R.layout.home)
 
-        // Nama yang ingin ditampilkan, misalnya diambil dari sumber data
-        val name = "Alex"  // Ini bisa diganti sesuai data dinamis Anda
+        val textView = findViewById<TextView>(R.id.nama)
+        val name = "Alex"
         textView.text = "Hi, $name"
-        }
+
+        anyChartView = findViewById(R.id.any_chart_view)
+
+        setupColumnChart()
     }
+
+    private fun setupColumnChart() {
+        val Column = AnyChart.column()
+        val dataEntries = ArrayList<DataEntry>()
+
+        months.forEachIndexed { index, month ->
+            dataEntries.add(ValueDataEntry(month, earnings[index]))
+        }
+
+        Column.data(dataEntries)
+        anyChartView.setChart(Column)
+    }
+}

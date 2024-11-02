@@ -8,14 +8,79 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:layout_width="377dp"
+        android:layout_height="162dp"
+        android:layout_weight="0.3233"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/any_chart_view"
+        tools:layout_editor_absoluteX="21dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="341dp"
+            android:layout_weight="0.333"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/poppins"
+                android:text="Total Saldo"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/TotalBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Rp 100.000.000"
+                android:textColor="#f1f1f3"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.333"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/poppins"
+                android:text="Total Pengeluaran"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/TotalExpense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Rp 100.000.000"
+                android:textColor="#0068ff"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="470dp"
         android:background="@drawable/white_background"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,59 +103,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="104dp"
-        android:fontFamily="@font/poppins"
-        android:text="Total Balance"
-        android:textSize="14sp"
+    <com.anychart.AnyChartView
+        android:id="@+id/any_chart_view"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="100dp"
-        android:fontFamily="@font/poppins"
-        android:text="Total Expense"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.919"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/TotalBalance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Rp 100.000.000"
-        android:textColor="#f1f1f3"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/TotalExpense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Rp 100.000.000"
-        android:textColor="#0068ff"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.937"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@drawable/bottom_nav_backgorund"
@@ -103,11 +128,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.3233"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView"
                 android:layout_width="75dp"
                 android:layout_height="48dp"
                 app:srcCompat="@drawable/baseline_home_24" />
@@ -118,11 +142,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.3233"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView"
                 android:layout_width="75dp"
                 android:layout_height="48dp"
                 app:srcCompat="@drawable/baseline_compare_arrows_24" />
@@ -133,11 +156,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.3233"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView"
                 android:layout_width="75dp"
                 android:layout_height="48dp"
                 app:srcCompat="@drawable/baseline_category_24" />
@@ -148,11 +170,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.3233"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView"
                 android:layout_width="75dp"
                 android:layout_height="48dp"
                 app:srcCompat="@drawable/baseline_person_24" />
